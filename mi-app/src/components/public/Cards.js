@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card } from './Card'
+import RickAndMortyService from '../../services/RickAndMorty.service';
 
-export const Cards = ({ personajes }) => {
+export const Cards = () => {
+
+  const [personajes, setPersonajes] = useState([]);
+
+  useEffect( () => {
+    RickAndMortyService.getAllCharacters()
+    .then((info) => setPersonajes(info.results))
+    .catch((error) => console.log(error));
+  }, [personajes])
 
   const cardsList = personajes.map((p) => <Card personaje = {p} key={p.id} />)
 

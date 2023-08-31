@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Cards } from "./Cards";
-import RickAndMortyService from "../../services/RickAndMorty.service";
+// import RickAndMortyService from "../../services/RickAndMorty.service";
 
 export default class Main extends Component {
   constructor(props) {
@@ -8,16 +8,15 @@ export default class Main extends Component {
     this.state = { personajes: [] };
   }
 
-  componentDidMount() {
+  // componentDidMount() {
     
-    RickAndMortyService.getAllCharacters()
-    .then((info) => this.setState({ personajes: info.results}))
-    .catch((error) => console.log(error));
+  //   RickAndMortyService.getAllCharacters()
+  //   .then((info) => this.setState({ personajes: info.results}))
+  //   .catch((error) => console.log(error));
 
-  }
+  // }
 
   render() {
-    console.log("Hola desde el render");
     return (
       <main>
         <section className="py-5 text-center container">
@@ -41,7 +40,7 @@ export default class Main extends Component {
           </div>
         </section>
 
-        <Cards personajes = {this.state.personajes} />
+        <Cards />
 
       </main>
     );
