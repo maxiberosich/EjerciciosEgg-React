@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Card = ({personaje}) => {
   return (
@@ -22,13 +23,9 @@ export const Card = ({personaje}) => {
                 type="button"
                 className="btn btn-sm btn-outline-secondary"
               >
-                View
-              </button>
-              <button
-                type="button"
-                className="btn btn-sm btn-outline-secondary"
-              >
-                Edit
+                <Link to={`/details/${personaje.id}`} className="nav-link">
+                  Detalle
+                </Link>
               </button>
             </div>
             <small className="text-body-secondary">9 mins</small>
